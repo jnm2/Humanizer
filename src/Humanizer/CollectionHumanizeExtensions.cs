@@ -15,9 +15,9 @@ namespace Humanizer
         /// using the default separator for the current culture.
         /// </summary>
         /// <returns></returns>
-        public static string Humanize<T>(this IEnumerable<T> collection)
+        public static string Humanize<T>(this IEnumerable<T> collection, StringJoinOptions options = StringJoinOptions.Default)
         {
-            return Configurator.CollectionFormatter.Humanize(collection);
+            return Configurator.CollectionFormatter.Humanize(collection, options);
         }
 
         /// <summary>
@@ -25,12 +25,12 @@ namespace Humanizer
         /// and using the default separator for the current culture.
         /// </summary>
         /// <returns></returns>
-        public static string Humanize<T>(this IEnumerable<T> collection, Func<T, string> displayFormatter)
+        public static string Humanize<T>(this IEnumerable<T> collection, Func<T, string> displayFormatter, StringJoinOptions options = StringJoinOptions.Default)
         {
             if (displayFormatter == null)
                 throw new ArgumentNullException(nameof(displayFormatter));
 
-            return Configurator.CollectionFormatter.Humanize(collection, displayFormatter);
+            return Configurator.CollectionFormatter.Humanize(collection, displayFormatter, options);
         }
 
         /// <summary>
@@ -38,10 +38,10 @@ namespace Humanizer
         /// and using the provided separator.
         /// </summary>
         /// <returns></returns>
-        public static string Humanize<T>(this IEnumerable<T> collection, string separator)
+        public static string Humanize<T>(this IEnumerable<T> collection, string separator, StringJoinOptions options = StringJoinOptions.Default)
         {
 
-            return Configurator.CollectionFormatter.Humanize(collection, separator);
+            return Configurator.CollectionFormatter.Humanize(collection, separator, options);
         }
 
         /// <summary>
@@ -49,12 +49,12 @@ namespace Humanizer
         /// and using the provided separator.
         /// </summary>
         /// <returns></returns>
-        public static string Humanize<T>(this IEnumerable<T> collection, Func<T, string> displayFormatter, string separator)
+        public static string Humanize<T>(this IEnumerable<T> collection, Func<T, string> displayFormatter, string separator, StringJoinOptions options = StringJoinOptions.Default)
         {
             if (displayFormatter == null)
                 throw new ArgumentNullException(nameof(displayFormatter));
 
-            return Configurator.CollectionFormatter.Humanize(collection, displayFormatter, separator);
+            return Configurator.CollectionFormatter.Humanize(collection, displayFormatter, separator, options);
         }
     }
 }

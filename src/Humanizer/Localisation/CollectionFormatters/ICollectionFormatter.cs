@@ -12,26 +12,26 @@ namespace Humanizer.Localisation.CollectionFormatters
         /// Formats the collection for display, calling ToString() on each object.
         /// </summary>
         /// <returns></returns>
-        string Humanize<T>(IEnumerable<T> collection);
+        string Humanize<T>(IEnumerable<T> collection, StringJoinOptions options = StringJoinOptions.Default);
 
         /// <summary>
         /// Formats the collection for display, calling `objectFormatter` on each object.
         /// </summary>
         /// <returns></returns>
-        string Humanize<T>(IEnumerable<T> collection, Func<T, string> objectFormatter);
+        string Humanize<T>(IEnumerable<T> collection, Func<T, string> objectFormatter, StringJoinOptions options = StringJoinOptions.Default);
 
         /// <summary>
         /// Formats the collection for display, calling ToString() on each object
         /// and using `separator` before the final item.
         /// </summary>
         /// <returns></returns>
-        string Humanize<T>(IEnumerable<T> collection, string separator);
+        string Humanize<T>(IEnumerable<T> collection, string separator, StringJoinOptions options = StringJoinOptions.Default);
 
         /// <summary>
         /// Formats the collection for display, calling `objectFormatter` on each object
         /// and using `separator` before the final item.
         /// </summary>
         /// <returns></returns>
-        string Humanize<T>(IEnumerable<T> collection, Func<T, string> objectFormatter, string separator);
+        string Humanize<T>(IEnumerable<T> collection, Func<T, string> objectFormatter, string separator, StringJoinOptions options = StringJoinOptions.Default);
     }
 }
